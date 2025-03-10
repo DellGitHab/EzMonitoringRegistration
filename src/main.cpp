@@ -16,7 +16,7 @@ MFRC522 rfid(SS_PIN, RST_PIN);
 LiquidCrystal_I2C lcd(0x27, 16, 2); // I2C address 
 
 // WiFi credentials
-const char* ssid = "kent";
+const char* ssid = "kentsoliva";
 const char* password = "kent12345";
 
 String deviceID = "";
@@ -103,7 +103,7 @@ void setup() {
 void sendRfidData(String rfidNumber) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
-    String serverUrl = "http://192.168.213.207:3000/api/rfid"; 
+    String serverUrl = "http://192.168.137.134:3000/api/rfid"; 
     String jsonPayload = "{\"rfid_number\":\"" + rfidNumber + "\", \"device_id\":\"" + deviceID + "\"}";
 
     http.begin(serverUrl);
